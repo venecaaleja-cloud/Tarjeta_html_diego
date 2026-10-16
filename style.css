@@ -1,0 +1,292 @@
+/* =========================================
+   VARIABLES Y RESET
+   ========================================= */
+:root {
+    /* Colores del sitio */
+    --color-fondo: #f8f9fa;
+    --color-oscuro: #1e1e1e;
+    --color-blanco: #ffffff;
+    --color-texto: #333333;
+    --color-borde: #1e1e1e;
+    --color-estrella: #ffc107;
+
+    /* Fuente general */
+    --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Quitamos márgenes y paddings por defecto */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-fondo);
+    font-family: var(--fuente);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    color: var(--color-texto);
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+   ========================================= */
+.seccion-testimonios {
+    max-width: 1100px;
+    width: 100%;
+}
+
+/* Cuadrícula: en móvil 1 columna */
+.cuadricula-testimonios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* =========================================
+   ESTILOS DE LAS TARJETAS
+   ========================================= */
+.tarjeta {
+    border-radius: 15px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-4px);
+}
+
+/* Tarjeta con fondo oscuro */
+.tarjeta-oscura {
+    background-color: var(--color-oscuro);
+    color: var(--color-blanco);
+}
+
+/* Tarjeta con fondo blanco y borde */
+.tarjeta-clara {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+}
+
+/* =========================================
+   TEXTOS Y PIE DE TARJETA
+   ========================================= */
+.texto-tarjeta {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.nombre {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.rol {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.pie-tarjeta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* =========================================
+   TARJETA 3: SOLO IMAGEN
+   ========================================= */
+.tarjeta-solo-imagen {
+    padding: 0;
+    overflow: hidden;
+    border: none;
+}
+
+.imagen-completa {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================================
+   TARJETA 4: ESTRELLAS
+   ========================================= */
+/* Las estrellas son caracteres ★ pintados de dorado */
+.estrellas {
+    color: var(--color-estrella);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.nombre-grande {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.rol-claro {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   TARJETA 5: CARRUSEL SOLO CON CSS
+   ========================================= */
+
+/* Ocultamos los radios: no se ven pero controlan todo */
+.tarjeta-5 input[type="radio"] {
+    display: none;
+}
+
+.texto-centrado {
+    text-align: center;
+}
+
+/* Todos los slides ocultos por defecto */
+.slide {
+    display: none;
+}
+
+/* Mostramos solo el slide que corresponde al radio marcado */
+#slide-1:checked ~ .carrusel-textos .slide-1,
+#slide-2:checked ~ .carrusel-textos .slide-2,
+#slide-3:checked ~ .carrusel-textos .slide-3 {
+    display: block;
+}
+
+/* Lo mismo con los nombres */
+.carrusel-nombres {
+    text-align: center;
+}
+
+.carrusel-nombres .nombre-pequeno {
+    display: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+#slide-1:checked ~ .carrusel-nombres .nombre-1,
+#slide-2:checked ~ .carrusel-nombres .nombre-2,
+#slide-3:checked ~ .carrusel-nombres .nombre-3 {
+    display: block;
+}
+
+/* =========================================
+   FLECHAS Y AVATARES DEL CARRUSEL
+   ========================================= */
+
+/* Contenedor de flechas y avatares */
+.selector-usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0 10px;
+    position: relative;
+}
+
+/* Todas las flechas ocultas por defecto */
+.flecha {
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #555;
+    display: none;
+    transition: transform 0.2s ease;
+}
+
+.flecha:hover {
+    color: #000;
+    transform: scale(1.2);
+}
+
+/* Flechas visibles según el slide activo */
+#slide-1:checked ~ .selector-usuario .flecha-1-izq,
+#slide-1:checked ~ .selector-usuario .flecha-1-der,
+#slide-2:checked ~ .selector-usuario .flecha-2-izq,
+#slide-2:checked ~ .selector-usuario .flecha-2-der,
+#slide-3:checked ~ .selector-usuario .flecha-3-izq,
+#slide-3:checked ~ .selector-usuario .flecha-3-der {
+    display: inline;
+}
+
+/* Orden visual: flecha izquierda, avatares, flecha derecha */
+.selector-usuario .flecha-1-izq,
+.selector-usuario .flecha-2-izq,
+.selector-usuario .flecha-3-izq {
+    order: 1;
+}
+
+.selector-usuario .avatar-label {
+    order: 2;
+}
+
+.selector-usuario .flecha-1-der,
+.selector-usuario .flecha-2-der,
+.selector-usuario .flecha-3-der {
+    order: 3;
+}
+
+/* Avatares */
+.avatar-selector {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.4;
+    transform: scale(0.85);
+    transition: all 0.3s ease;
+}
+
+/* El avatar del slide activo se ve grande y con borde */
+#slide-1:checked ~ .selector-usuario .avatar-label:nth-of-type(1) .avatar-selector,
+#slide-2:checked ~ .selector-usuario .avatar-label:nth-of-type(2) .avatar-selector,
+#slide-3:checked ~ .selector-usuario .avatar-label:nth-of-type(3) .avatar-selector {
+    opacity: 1;
+    transform: scale(1.1);
+    border: 2px solid var(--color-oscuro);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+/* Tablet en adelante: 2 columnas */
+@media (min-width: 768px) {
+    .cuadricula-testimonios {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: minmax(200px, auto);
+    }
+
+    /* La tarjeta 5 ocupa las dos columnas */
+    .tarjeta-5 {
+        grid-column: span 2;
+    }
+}
+
+/* Escritorio: más espacio y letra un poco más grande */
+@media (min-width: 1024px) {
+    .tarjeta {
+        padding: 30px;
+    }
+
+    .texto-tarjeta {
+        font-size: 1.1rem;
+    }
+}

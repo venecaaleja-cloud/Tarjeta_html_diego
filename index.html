@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas de Testimonio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="seccion-testimonios">
+        <div class="cuadricula-testimonios">
+
+            <!-- Tarjeta 1: fondo oscuro -->
+            <article class="tarjeta tarjeta-oscura tarjeta-1">
+                <p class="texto-tarjeta">
+                    He estado resolviendo todas las ideas de proyectos en roadmap.sh y estoy sorprendido de lo lejos que he llegado desde donde empecé. ¡Altamente recomendado!
+                </p>
+                <div class="pie-tarjeta">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Artem Jones" class="avatar">
+                    <div class="info-usuario">
+                        <h3 class="nombre">Artem Jones</h3>
+                        <p class="rol">Desarrollador Frontend Junior</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Tarjeta 2: fondo blanco con borde -->
+            <article class="tarjeta tarjeta-clara tarjeta-2">
+                <p class="texto-tarjeta">
+                    Desde que comencé mi carrera en 2021, solo he seguido un recurso, roadmap.sh. Realmente me ayudó a pasar de 0 a tener un trabajo y cambiar la trayectoria financiera de mi familia.
+                </p>
+                <div class="pie-tarjeta">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Artem Jones" class="avatar">
+                    <div class="info-usuario">
+                        <h3 class="nombre">Artem Jones</h3>
+                        <p class="rol">Desarrollador Frontend Junior</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Tarjeta 3: solo imagen -->
+            <article class="tarjeta tarjeta-solo-imagen tarjeta-3">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jackie Mackle" class="imagen-completa">
+            </article>
+
+            <!-- Tarjeta 4: estrellas y nombre grande -->
+            <article class="tarjeta tarjeta-oscura tarjeta-4">
+                <!-- Las estrellas son solo caracteres ★ pintados con color -->
+                <div class="estrellas">★★★★★</div>
+                <h3 class="nombre-grande">Jackie Mackle</h3>
+                <p class="rol-claro">Gerente de Ingeniería</p>
+                <p class="texto-tarjeta">
+                    Me encuentro recomendando roadmap.sh a todos los pasantes o desarrolladores junior. Es una excelente manera de mejorar y crecer en tu carrera.
+                </p>
+            </article>
+
+            <!-- Tarjeta 5: carrusel solo con CSS -->
+            <article class="tarjeta tarjeta-clara tarjeta-5">
+
+                <!-- Radios ocultos: son el motor del carrusel -->
+                <input type="radio" name="carrusel" id="slide-1" checked>
+                <input type="radio" name="carrusel" id="slide-2">
+                <input type="radio" name="carrusel" id="slide-3">
+
+                <!-- Comentarios: solo se muestra el del slide activo -->
+                <div class="carrusel-textos">
+                    <p class="texto-tarjeta texto-centrado slide slide-1">
+                        roadmap.sh es un recurso increíble. Tuve la suerte de descubrirlo durante mis días de universidad en 2018. En ese entonces, era solo un único repositorio con tres imágenes. Es asombroso ver cuánto impacto ha tenido en millones de vidas desde entonces.
+                    </p>
+                    <p class="texto-tarjeta texto-centrado slide slide-2">
+                        Como gerente de ingeniería, he visto a muchos juniors crecer usando roadmap.sh. Es una de las mejores herramientas gratuitas que existen para aprender de forma estructurada.
+                    </p>
+                    <p class="texto-tarjeta texto-centrado slide slide-3">
+                        Empecé sin saber nada de programación y en menos de un año conseguí mi primer trabajo. Todo gracias a seguir las rutas de roadmap.sh paso a paso.
+                    </p>
+                </div>
+
+                <!-- Selector: flechas y avatares -->
+                <div class="selector-usuario">
+
+                    <!-- Flechas: hay una pareja por cada slide. Solo se ve la activa -->
+                    <!-- Flechas para el slide 1 -->
+                    <label for="slide-3" class="flecha flecha-1-izq">&lt;</label>
+                    <label for="slide-2" class="flecha flecha-1-der">&gt;</label>
+
+                    <!-- Flechas para el slide 2 -->
+                    <label for="slide-1" class="flecha flecha-2-izq">&lt;</label>
+                    <label for="slide-3" class="flecha flecha-2-der">&gt;</label>
+
+                    <!-- Flechas para el slide 3 -->
+                    <label for="slide-2" class="flecha flecha-3-izq">&lt;</label>
+                    <label for="slide-1" class="flecha flecha-3-der">&gt;</label>
+
+                    <!-- Avatares: cada uno apunta a un slide -->
+                    <label for="slide-1" class="avatar-label">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Artem" class="avatar-selector">
+                    </label>
+                    <label for="slide-2" class="avatar-label">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jackie" class="avatar-selector">
+                    </label>
+                    <label for="slide-3" class="avatar-label">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos" class="avatar-selector">
+                    </label>
+
+                </div>
+
+                <!-- Nombres: solo se ve el del slide activo -->
+                <div class="carrusel-nombres">
+                    <p class="nombre-pequeno nombre-1">Artem Jones</p>
+                    <p class="nombre-pequeno nombre-2">Jackie Mackle</p>
+                    <p class="nombre-pequeno nombre-3">Carlos Ramírez</p>
+                </div>
+
+            </article>
+
+        </div>
+    </section>
+
+</body>
+</html>
